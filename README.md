@@ -16,3 +16,16 @@ Demo 🚀
 Access the app on your local machine:
 
 Visit: http://0.0.0.0:5050
+
+
+src/
+├── public/
+│   ├── banner.jpg       # Banner image for the page
+│   ├── song1.jpg        # Thumbnail for song 1
+│   ├── song2.jpg        # Thumbnail for song 2
+│   ├── music.mp3        # Audio file for streaming
+    ├── music2.mp3        # Audio file for streaming
+├── .env                 # Environment variables (e.g., PORT)
+├── docker-compose.yml   # Docker Compose configuration
+├── Dockerfile           # Dockerfile to containerize the app
+├── server.js            # Node.js server file
