@@ -16,6 +16,7 @@ jobs:
           docker build -t quran-app:latest .
 
           #push the image to docker hub.
+          docker login
           docker pull quran-app/yoyo7sniper97/quran-app:latest
           
           docker-compose up 
