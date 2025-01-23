@@ -7,16 +7,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: |
-          docker build -t quran-app:latest .
-
-          #push the image to docker hub.
-          docker login
-          docker pull quran-app/yoyo7sniper97/quran-app:latest
-          
-          docker-compose up 
+      - uses: actions/checkout@v3 # Check out your repository code
+      - name: Build Docker Image
+        run: |
+          docker build -t yoyo7sniper97/quran-app:latest . 
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+      - name: Push Docker Image
+        run: docker push yoyo7sniper97/quran-app:latest
