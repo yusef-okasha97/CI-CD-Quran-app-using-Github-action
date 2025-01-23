@@ -35,3 +35,14 @@ jobs:
     - name: Push Docker Image
       run: |
         docker push yoyo7sniper97/quran-app:latest
+
+  deploy:
+   runs-on: ubuntu-latest
+   needs : build
+   steps: 
+ 
+    - uses: actions/checkout@v3
+    - name: Run Docker Compose
+      run : |
+         docker-compose up
+     
