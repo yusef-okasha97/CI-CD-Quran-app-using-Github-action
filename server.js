@@ -95,7 +95,7 @@ app.get("/", (req, res) => {
                         <div class="song-info">
                             <h3>Al-Sharh</h3>
                             <p>Al-Hosary</p>
-                            <audio controls>
+                            <audio id="audio1" controls>
                                 <source src="/music.mp3" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
@@ -106,7 +106,7 @@ app.get("/", (req, res) => {
                         <div class="song-info">
                             <h3>Fatir</h3>
                             <p>Abdul Basit</p>
-                            <audio controls>
+                            <audio id="audio2" controls>
                                 <source src="/music2.mp3" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
@@ -117,11 +117,31 @@ app.get("/", (req, res) => {
             <footer>
                 <p>&copy; 2025 OpenMusicStream. All rights reserved.</p>
             </footer>
+            <script>
+                // Store reference to the audio elements
+                const audio1 = document.getElementById('audio1');
+                const audio2 = document.getElementById('audio2');
+
+                // Function to stop all audios except the currently playing one
+                function stopOtherAudios(currentAudio) {
+                    const audios = [audio1, audio2]; // Add more if you have more audio elements
+                    audios.forEach(audio => {
+                        if (audio !== currentAudio) {
+                            audio.pause();
+                            audio.currentTime = 0; // Reset the audio to the beginning
+                        }
+                    });
+                }
+
+                // Event listeners for when audio plays
+                audio1.addEventListener('play', () => stopOtherAudios(audio1));
+                audio2.addEventListener('play', () => stopOtherAudios(audio2));
+            </script>
         </body>
         </html>
     `);
 });
 
 app.listen(PORT, () => {
-    console.log('Server running on port ${PORT}');
+    console.log(`Server running on port ${PORT}`);
 });
