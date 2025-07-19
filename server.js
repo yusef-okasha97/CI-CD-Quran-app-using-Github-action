@@ -84,7 +84,7 @@ app.get("/", (req, res) => {
         </head>
         <body>
             <header>
-                <h1>your way to heaven</h1>
+                <h1>your way to heaven - Manara project </h1>
                 <p></p>
             </header>
             <div class="container">
