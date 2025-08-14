@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5.0.0
 
       - name: Build Docker Image
         run: |
@@ -29,5 +29,8 @@ jobs:
       - name: Push Docker Image
         run: |
           docker push yoyo7sniper97/quran-app:latest
+
+      - name: list data
+        run: ls -la
 
   
